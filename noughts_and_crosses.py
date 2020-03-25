@@ -32,10 +32,12 @@ def ask_yes_no(question):
 
 def ask_number(question, low, high):
     """Popros o podanie liczby z odpowiedniego zakresu."""
+    
     response = None
     while response not in range (low+1, high+1):
         response = int(input(question))
     return response
+    
 
 def pieces():
     """Ustalamy czy pierwszy ruch należy do gracza, czy do komputera."""
@@ -101,13 +103,13 @@ def human_move(board, human):
    legal = legal_moves(board)
    move = None
    while move not in legal:
-        move = (ask_number("Jaki będzie twój ruch ( 1 - 9):", 0, NUM_SQUARES))-1
-        if move not in legal:
-            print("\nTo pole jest już zajęte, wybierz inne. \n")
-    
+       move = (ask_number("Jaki będzie twój ruch ( 1 - 9):", 0, NUM_SQUARES))-1
+       if move not in legal:
+           print("\nTo pole jest już zajęte, wybierz inne. \n")
    print("Świetnie ...")
-   return move 
+   return move  
 
+        
 def computer_move(board, computer, human):
     """Spowoduje wykonanie ruchu przez komputer."""
     #tworzymy kopię roboczą ponieważ funkcja będzie zmieniać listę
@@ -115,7 +117,7 @@ def computer_move(board, computer, human):
     
     #najlepsza pozycja do zajęcia wg. kolejnosci
     
-    BEST_MOVES = (4, 0, 2, 6, 8, 1, 3, 5, 7) 
+    BEST_MOVES = (0, 8, 2, 6, 1, 3, 5, 7, 4) 
     
     
     print("Wybieram pole numer:", end="")
